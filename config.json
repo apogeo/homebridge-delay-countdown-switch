@@ -1,0 +1,10 @@
+{
+    "accessory": "CountdownDelaySwitch",
+    "name": "Timed Switch",
+    "delay": 30,
+    "delayUnit": "s",
+    "sensorType": "motion",
+    "flipSensorState": false,
+    "debug": true,
+    "startOnReboot": false
+}

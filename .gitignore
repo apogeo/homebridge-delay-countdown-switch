@@ -1,0 +1,16 @@
+# exclude VSCode files, and .code-workspace files
+.vscode/
+*.code-workspace
+
+# exclude node_modules and package-lock.json
+node_modules/
+package-lock.json
+# exclude build files
+dist/
+# exclude coverage files
+coverage/
+# exclude test files
+test/
+# exclude log files
+*.log
+

@@ -1,0 +1,35 @@
+{
+    "name": "homebridge-countdowndelay-switch",
+    "version": "1.0.0",
+    "description": "A Homebridge switch accessory with a countdown timer and optional sensor trigger.",
+    "main": "index.js",
+    "keywords": [
+      "homebridge-plugin",
+      "homebridge",
+      "homekit",
+      "countdown",
+      "switch",
+      "timer"
+    ],
+    "engines": {
+      "node": ">=14.0.0",
+      "homebridge": ">=1.4.0"
+    },
+    "license": "MIT",
+    "repository": {
+      "type": "git",
+      "url": "https://github.com/yourusername/homebridge-countdowndelay-switch"
+    },
+    "bugs": {
+      "url": "https://github.com/yourusername/homebridge-countdowndelay-switch/issues"
+    },
+    "author": "Apostolos Georgiadis",
+    "contributors": [
+      {
+        "name": "Nitay B",
+        "url": "https://github.com/nitaybz"
+      }
+    ],
+    "dependencies": {}
+  }
+  
