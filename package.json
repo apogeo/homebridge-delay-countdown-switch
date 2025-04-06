@@ -18,10 +18,10 @@
     "license": "MIT",
     "repository": {
       "type": "git",
-      "url": "https://github.com/yourusername/homebridge-countdowndelay-switch"
+      "url": "https://github.com/apogeo/homebridge-countdowndelay-switch"
     },
     "bugs": {
-      "url": "https://github.com/yourusername/homebridge-countdowndelay-switch/issues"
+      "url": "https://github.com/apogeo/homebridge-countdowndelay-switch/issues"
     },
     "author": "Apostolos Georgiadis",
     "contributors": [
