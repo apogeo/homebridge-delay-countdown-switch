@@ -1,4 +1,4 @@
-# homebridge-countdowndelay-switch
+# Homebridge Delay Countdown Switch
 
 A Homebridge accessory that acts as a delay switch with countdown timer functionality. The remaining time is displayed in the Apple Home app via a Fan accessory using the RotationSpeed characteristic as a percentage.
 
