@@ -12,7 +12,7 @@ A Homebridge accessory that acts as a delay switch with countdown timer function
 ## Installation
 
 ```bash
-npm install -g homebridge-countdowndelay-switch
+npm install -g homebridge-delay-countdown-switch
 ```
 
 ## Acknowledgments

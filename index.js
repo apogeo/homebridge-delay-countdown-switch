@@ -3,7 +3,7 @@ let Service, Characteristic;
 module.exports = function (homebridge) {
 	Service = homebridge.hap.Service;
 	Characteristic = homebridge.hap.Characteristic;
-	homebridge.registerAccessory('homebridge-countdowndelay-switch', 'DelayCountdownSwitch', delayCountdownSwitch);
+	homebridge.registerAccessory('homebridge-delay-countdown-switch', 'DelayCountdownSwitch', delayCountdownSwitch);
 };
 
 function delayCountdownSwitch(log, config, api) {

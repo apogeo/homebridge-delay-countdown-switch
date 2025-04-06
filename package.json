@@ -1,6 +1,6 @@
 {
-    "name": "homebridge-countdowndelay-switch",
-    "version": "1.0.6",
+    "name": "homebridge-delay-countdown-switch",
+    "version": "1.0.8",
     "displayName": "Delay Countdown Switch",
     "description": "A Homebridge switch accessory with a countdown timer and optional sensor trigger.",
     "main": "index.js",
@@ -19,10 +19,10 @@
     "license": "MIT",
     "repository": {
         "type": "git",
-        "url": "https://github.com/apogeo/homebridge-countdowndelay-switch"
+        "url": "https://github.com/apogeo/homebridge-delay-countdown-switch"
     },
     "bugs": {
-        "url": "https://github.com/apogeo/homebridge-countdowndelay-switch/issues"
+        "url": "https://github.com/apogeo/homebridge-delay-countdown-switch/issues"
     },
     "author": "Apostolos Georgiadis",
     "contributors": [
