@@ -1,6 +1,7 @@
 {
     "name": "homebridge-countdowndelay-switch",
     "version": "1.0.2",
+    "displayName": "Countdown Delay Switch",
     "description": "A Homebridge switch accessory with a countdown timer and optional sensor trigger.",
     "main": "index.js",
     "keywords": [

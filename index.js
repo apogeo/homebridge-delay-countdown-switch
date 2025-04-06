@@ -3,10 +3,11 @@ let Service, Characteristic;
 module.exports = function (homebridge) {
 	Service = homebridge.hap.Service;
 	Characteristic = homebridge.hap.Characteristic;
-	homebridge.registerAccessory('homebridge-countdowndelay-switch', 'CountdownDelaySwitch', delaySwitch);
+	//homebridge.registerAccessory('homebridge-countdowndelay-switch', 'CountdownDelaySwitch', delaySwitch);
+	homebridge.registerAccessory('homebridge-countdowndelay-switch', 'CountdownDelaySwitch', countdownDelaySwitch);
 };
 
-function delaySwitch(log, config, api) {
+function countdownDelaySwitch(log, config, api) {
 	const UUIDGen = api.hap.uuid;
 
 	this.log = log;
@@ -46,7 +47,7 @@ function delaySwitch(log, config, api) {
 	};
 }
 
-delaySwitch.prototype.getServices = function () {
+countdownDelaySwitch.prototype.getServices = function () {
 	const services = [];
 
 	// Accessory Information
@@ -116,7 +117,7 @@ delaySwitch.prototype.getServices = function () {
 	return services;
 };
 
-delaySwitch.prototype.setOn = function (value, callback) {
+countdownDelaySwitch.prototype.setOn = function (value, callback) {
 	if (value === false) {
 		this.log.easyDebug('Stopping the Timer');
 		this.switchOn = false;
@@ -170,6 +171,6 @@ delaySwitch.prototype.setOn = function (value, callback) {
 	callback();
 };
 
-delaySwitch.prototype.getOn = function (callback) {
+countdownDelaySwitch.prototype.getOn = function (callback) {
 	callback(null, this.switchOn);
 };
