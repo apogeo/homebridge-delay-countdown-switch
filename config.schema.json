@@ -61,6 +61,13 @@
                 "default": false,
                 "required": false
             },
+            "disableTimerDisplay": {
+                "title": "Disable Timer Display",
+                "description": "Enable to disable the countdown timer display.",
+                "type": "boolean",
+                "default": false,
+                "required": false
+            },
             "startOnReboot": {
                 "title": "Turn ON when Homebridge Restarts",
                 "description": "Activate switch after Homebridge restart.",
@@ -121,7 +128,21 @@
         {
           "type": "flex",
           "flex-flow": "row wrap",
-          "items": ["sensorType", "flipSensorState"]
+          "items": ["sensorType", "flipSensorState", "disableSensor"]
+        }
+      ]
+    },
+    {
+      "type": "fieldset",
+      "title": "Countdown Fake Fan",
+      "description": "Fake fan accessory that will be used to display the countdown timer.",
+      "expandable": true,
+      "expanded": false,
+      "items": [
+        {
+          "type": "flex",
+          "flex-flow": "row wrap",
+          "items": ["disableTimerDisplay"]
         }
       ]
     },
