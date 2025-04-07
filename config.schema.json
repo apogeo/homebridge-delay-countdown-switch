@@ -21,18 +21,18 @@
                 "required": true
             },
             "delayUnit": {
-            "title": "Delay Time Unit",
-            "description": "Delay Time Unit (milliseconds/seconds/minutes/hours/days).",
-            "type": "string",
-            "default": "ms",
-            "required": true,
-            "oneOf": [
-                { "title": "milliseconds", "enum": ["ms"] },
-                { "title": "seconds", "enum": ["s"] },
-                { "title": "minutes", "enum": ["m"] },
-                { "title": "hours", "enum": ["h"] },
-                { "title": "days", "enum": ["d"] }
-            ]
+              "title": "Delay Time Unit",
+              "description": "Delay Time Unit (milliseconds/seconds/minutes/hours/days).",
+              "type": "string",
+              "default": "ms",
+              "required": true,
+              "oneOf": [
+                  { "title": "milliseconds", "enum": ["ms"] },
+                  { "title": "seconds", "enum": ["s"] },
+                  { "title": "minutes", "enum": ["m"] },
+                  { "title": "hours", "enum": ["h"] },
+                  { "title": "days", "enum": ["d"] }
+              ]
             },
             "sensorType": {
                 "title": "Trigger Sensor Type",
@@ -50,6 +50,13 @@
             "flipSensorState": {
                 "title": "Flip Sensor State",
                 "description": "Enable to flip the trigger sensor state (close/open, detected/not detected).",
+                "type": "boolean",
+                "default": false,
+                "required": false
+            },
+            "disableSensor": {
+                "title": "Disable Sensor",
+                "description": "Enable to disable the trigger sensor.",
                 "type": "boolean",
                 "default": false,
                 "required": false

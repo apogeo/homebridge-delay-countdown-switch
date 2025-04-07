@@ -17,6 +17,7 @@ function delayCountdownSwitch(log, config, api) {
 	this.sensorType = config['sensorType'] || 'motion';
 	this.flipSensor = config['flipSensorState'];
 	this.disableSensor = config['disableSensor'] || !config['sensorType'] || this.delay === 0;
+	this.disableTimerDisplay = config['disableTimerDisplay'] || false;
 	this.startOnReboot = config['startOnReboot'] || false;
 
 	this.switchOn = false;
@@ -96,22 +97,24 @@ delayCountdownSwitch.prototype.getServices = function () {
 		services.push(this.sensorService);
 	}
 
-	// Timer Display via Fan
-	this.fakeTimerService = new Service.Fan(this.name + ' Timer');
-	this.fakeTimerService
-		.getCharacteristic(Characteristic.RotationSpeed)
-		.on('get', (callback) => {
-			const percentage = this.switchOn ? Math.floor((this.remainingTime / this.delayTime) * 100) : 0;
-			callback(null, percentage);
-		});
+	if (!this.disableTimerDisplay) {
+		// Timer Display via Fan
+		this.fakeTimerService = new Service.Fan(this.name + ' Timer');
+		this.fakeTimerService
+			.getCharacteristic(Characteristic.RotationSpeed)
+			.on('get', (callback) => {
+				const percentage = this.switchOn ? Math.floor((this.remainingTime / this.delayTime) * 100) : 0;
+				callback(null, percentage);
+			});
 
-	// Optional: show ON/OFF in UI for visual consistency
-	this.fakeTimerService
-		.getCharacteristic(Characteristic.On)
-		.on('get', (callback) => callback(null, this.switchOn))
-		.updateValue(this.switchOn);
+		// Optional: show ON/OFF in UI for visual consistency
+		this.fakeTimerService
+			.getCharacteristic(Characteristic.On)
+			.on('get', (callback) => callback(null, this.switchOn))
+			.updateValue(this.switchOn);
 
-	services.push(this.fakeTimerService);
+		services.push(this.fakeTimerService);
+	}
 
 	return services;
 };
@@ -128,8 +131,10 @@ delayCountdownSwitch.prototype.setOn = function (value, callback) {
 			this.sensorService.getCharacteristic(this.sensorCharacteristic).updateValue(this.getSensorState());
 		}
 
-		this.fakeTimerService.getCharacteristic(Characteristic.RotationSpeed).updateValue(0);
-		this.fakeTimerService.getCharacteristic(Characteristic.On).updateValue(false);
+		if (!this.disableTimerDisplay) {
+			this.fakeTimerService.getCharacteristic(Characteristic.RotationSpeed).updateValue(0);
+			this.fakeTimerService.getCharacteristic(Characteristic.On).updateValue(false);
+		}
 
 	} else if (value === true) {
 		this.log.easyDebug('Starting the Timer');
@@ -137,13 +142,18 @@ delayCountdownSwitch.prototype.setOn = function (value, callback) {
 		clearInterval(this.timer);
 		this.remainingTime = this.delayTime;
 
-		this.fakeTimerService.getCharacteristic(Characteristic.On).updateValue(true);
-		this.fakeTimerService.getCharacteristic(Characteristic.RotationSpeed).updateValue(100);
+		if (!this.disableTimerDisplay) {
+			this.fakeTimerService.getCharacteristic(Characteristic.On).updateValue(true);
+			this.fakeTimerService.getCharacteristic(Characteristic.RotationSpeed).updateValue(100);
+		}
 
 		this.timer = setInterval(() => {
 			this.remainingTime -= 1000;
-			const percentage = Math.max(Math.floor((this.remainingTime / this.delayTime) * 100), 0);
-			this.fakeTimerService.getCharacteristic(Characteristic.RotationSpeed).updateValue(percentage);
+
+			if (!this.disableTimerDisplay) {
+				const percentage = Math.max(Math.floor((this.remainingTime / this.delayTime) * 100), 0);
+				this.fakeTimerService.getCharacteristic(Characteristic.RotationSpeed).updateValue(percentage);
+			}
 
 			if (this.remainingTime <= 0) {
 				this.log.easyDebug('Time is Up!');
@@ -151,8 +161,11 @@ delayCountdownSwitch.prototype.setOn = function (value, callback) {
 				this.switchOn = false;
 
 				this.switchService.getCharacteristic(Characteristic.On).updateValue(false);
-				this.fakeTimerService.getCharacteristic(Characteristic.RotationSpeed).updateValue(0);
-				this.fakeTimerService.getCharacteristic(Characteristic.On).updateValue(false);
+
+				if (!this.disableTimerDisplay) {
+					this.fakeTimerService.getCharacteristic(Characteristic.RotationSpeed).updateValue(0);
+					this.fakeTimerService.getCharacteristic(Characteristic.On).updateValue(false);
+				}
 
 				if (!this.disableSensor) {
 					this.sensorTriggered = 1;

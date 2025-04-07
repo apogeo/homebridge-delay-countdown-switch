@@ -14,3 +14,4 @@ test/
 # exclude log files
 *.log
 
+assets/logo.xcf
