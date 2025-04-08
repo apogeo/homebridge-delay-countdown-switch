@@ -137,6 +137,12 @@ delayCountdownSwitch.prototype.setOn = function (value, callback) {
 		}
 
 	} else if (value === true) {
+		if (this.switchOn) {
+			this.log.easyDebug('Timer is already running, ignoring duplicate start request.');
+			callback();
+			return;
+		}
+
 		this.log.easyDebug('Starting the Timer');
 		this.switchOn = true;
 		clearInterval(this.timer);
