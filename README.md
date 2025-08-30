@@ -56,6 +56,13 @@ npm install -g homebridge-delay-countdown-switch
 | `startOnReboot`         | When set to `true`, the switch will be turned ON and start the timer when Homebridge restarts        |       |  `false` |  Boolean  |
 
 
+## Support homebridge-delay-countdown-switch
+
+**homebridge-delay-countdown-switch** is a free plugin under the MIT license. it was developed as a contribution to the homebridge/hoobs community with lots of love and thoughts.
+Creating and maintaining Homebridge plugins consume a lot of time and effort and if you would like to share your appreciation, feel free to "Star" or donate.
+
+[![PayPal](https://img.shields.io/badge/PayPal-Donate-blue.svg?logo=paypal)](https://www.paypal.me/apogeorgiadis)
+
 ## Acknowledgments
 
 This plugin is a derived work based on [homebridge-delay-switch](https://github.com/nitaybz/homebridge-delay-switch) by [Nitay B](https://github.com/nitaybz), licensed under the MIT License.
