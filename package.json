@@ -31,6 +31,10 @@
             "url": "https://github.com/nitaybz"
         }
     ],
+    "funding": {
+      "type" : "paypal",
+      "url" : "https://www.paypal.com/donate/?hosted_button_id=DY8LBLF932SSL"
+    },
     "homepage": "https://github.com/apogeo/homebridge-delay-countdown-switch",
     "dependencies": {}
 }
