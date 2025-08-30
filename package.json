@@ -1,6 +1,6 @@
 {
     "name": "homebridge-delay-countdown-switch",
-    "version": "1.1.10",
+    "version": "1.1.12",
     "displayName": "Delay Countdown Switch",
     "description": "A Homebridge switch accessory with a countdown timer and optional sensor trigger.",
     "main": "index.js",
@@ -33,7 +33,7 @@
     ],
     "funding": {
       "type" : "paypal",
-      "url" : "https://www.paypal.com/donate/?hosted_button_id=DY8LBLF932SSL"
+      "url" : "https://paypal.me/apogeorgiadis"
     },
     "homepage": "https://github.com/apogeo/homebridge-delay-countdown-switch",
     "dependencies": {}
