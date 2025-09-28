@@ -1,6 +1,6 @@
 {
     "pluginAlias": "DelayCountdownSwitch",
-    "pluginType": "platform",
+    "pluginType": "accessory",
     "singular": false,
     "headerDisplay": "A Homebridge switch accessory with a countdown timer and optional sensor trigger",
     "footerDisplay": "Created by @apogeo",

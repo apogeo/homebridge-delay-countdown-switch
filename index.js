@@ -1,5 +1,5 @@
 module.exports = (api) => {
-	api.registerAccessory('DelayCountdownSwitch', DelayCountdownSwitch);
+	api.registerAccessory('homebridge-delay-countdown-switch', 'DelayCountdownSwitch', DelayCountdownSwitch);
 };
 
 class DelayCountdownSwitch {
